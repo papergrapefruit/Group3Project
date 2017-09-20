@@ -1,8 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "",
+    "password": "root",
+    "port": 8889,
+    "database": "codatunes",
     "host": "localhost",
     "dialect": "mysql"
   },
