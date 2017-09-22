@@ -1,0 +1,31 @@
+    <!-- Overall Bootstrap Grid -->
+    <div class="container">
+
+       <!-- Jumbotron with Title -->
+        <div class="jumbotron">
+            
+           <h1 class="text-center"><strong> Hello, generate your own Music : with Creator! </strong></h1>
+            <p class="text-center">Rated M for Music - create your own or randomly select a score!!!</p>
+        </div>
+
+       <ul class="menu">
+          <li class="selected">
+            <button title="You want to login?" data-page="Login">Login?</button>
+          </li>
+          <li>
+            <form method="GET" action="/random">
+              <button type="submit" title="Random" data-page="Select">Generate a random score</button>
+            </form>
+          </li>
+          <li>
+            <form method="GET" action="/create">
+              <button title="Create your own score?" data-page="Create">Create your own?</button>
+            </form>  
+          </li>
+        </ul>
+
+   </div>  
+
+   <div class="footer">
+    <p class="text-center"> Music Maker is an open source music creator, written by Adam Haag, Stacy Feldstein, and Jim Gildersleeve </p>
+    </div>
