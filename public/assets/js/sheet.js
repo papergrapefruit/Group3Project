@@ -12,14 +12,13 @@ K: ${key}
     for(var i = 0; i < 20; i++){
       music += this.newBar(4);
       if(i % 4 === 0 && i !== 0){
-        music += "|\n"; //every 4 bars, add an end bar line, and start a new line
+        music += "\n"; //every 4 bars, add an end bar line, and start a new line
       }
     }
-    music += "|";
     return music;
   }
   this.newBar = function(beats){
-    var bar = "|";  //initialize a new bar with a bar line
+    var bar = "";  //initialize a new bar with a bar line
     while (beats > 0){
       var options = ["3", "2", "1", "1/2"];
       var newBeat = options[Math.floor(Math.random()* options.length)];
@@ -31,11 +30,14 @@ K: ${key}
         options.splice(index);
       }
     }
+    bar += "|";
     return bar;
   }
 }
 
-
+/*
 var s = new Sheet("treble", "4/4", "A", "1/4");
 var m = s.random();
 console.log(m);
+
+*/
