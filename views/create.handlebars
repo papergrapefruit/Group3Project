@@ -23,7 +23,7 @@
 
     $("#saveCreation").on("click", function(){
       if($("#warnings").is(":empty")){ //only allow user to save if score is error free.  
-        $.post("/api/save/creation", {title: "test", music: $("#abc").val()}, function(result){
+        $.post("/api/save/creation", {title: "test", music: $("#abc").val(), random: false}, function(result){
           console.log(result);
         });
       } else {
