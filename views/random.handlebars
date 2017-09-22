@@ -9,7 +9,7 @@ $(document).ready(function(){
   ABCJS.plugin.start(jQuery);
 
   $("#saveRandom").on("click", function(){
-    $.post("/api/save/random", {title: null, music: music}, function(result){
+    $.post("/api/save/random", {title: "test", music: music, random: true}, function(result){
       console.log(result);
     });
   });

@@ -9,7 +9,8 @@ module.exports = function(app){
   app.post("/api/save/random", function(req, res){
     db.Score.create({
       title: req.body.title,
-      music: req.body.music
+      music: req.body.music,
+      random: req.body.random
     }).then(function(dbPost){
       res.json(dbPost);
     });
@@ -18,7 +19,8 @@ module.exports = function(app){
   app.post("/api/save/creation", function(req, res){
     db.Score.create({
       title: req.body.title,
-      music: req.body.music
+      music: req.body.music,
+      random: req.body.random
     }).then(function(dbPost){
       res.json(dbPost);
     });
