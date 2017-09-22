@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -22,6 +23,7 @@ module.exports = function (app) {
   });
 
   app.get("/random", function(req, res){
+
     res.render("random");
   });
 };

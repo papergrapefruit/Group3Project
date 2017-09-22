@@ -12,6 +12,15 @@ module.exports = function(app){
       music: req.body.music
     }).then(function(dbPost){
       res.json(dbPost);
-    })
-  })
+    });
+  });
+
+  app.post("/api/save/creation", function(req, res){
+    db.Score.create({
+      title: req.body.title,
+      music: req.body.music
+    }).then(function(dbPost){
+      res.json(dbPost);
+    });
+  });
 }
