@@ -17,21 +17,13 @@
           canvas_id: "canvas",
           midi_id: "midi",
           warnings_id: "warnings",
-          parser_options: {
-            print: 1,
-            header_only: 0
-          },
-          midi_options: {
-            program: 64
-          }
         });
     }
     ABCJS.plugin.start(jQuery);
 
     $("#saveCreation").on("click",
       function () {
-        if ($("#warnings").is(
-            ":empty")) { //only allow user to save if score is error free.
+        if ($("#warnings").is(":empty") && !$("#abc").is(":empty")) { //only allow user to save if score is error free.
           $.post(
             "/api/save/creation", {
               title: "test",
