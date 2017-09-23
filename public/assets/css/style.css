@@ -1,3 +1,10 @@
+
+.jumbotron h1 {
+  color: rgb(255, 255, 89);
+  font-family: 'Monoton', cursive;
+  background-color: rgba(100, 100, 126, 0.26);
+
+
 body {
   color: #333333 ;
 }
@@ -68,12 +75,13 @@ h1, h2 {
   padding: 0;
 }
 h1 {
-  font-size: 52px;
+  font-size: 100px;
 }
 h2 {
   font-style: italic;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: normal;
+  color: wheat;
 }
 .page {
   padding: 0 32px;
