@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Codatunes!</title>
 
   <!-- Bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- CSS Files -->
   <link href="./assets/css/style.css" media="all"
+    rel="stylesheet" type="text/css" />
+  <link href="./assets/css/footer.css" media="all"
     rel="stylesheet" type="text/css" />
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -20,16 +22,16 @@
 </head>
 
 <body>
-  <div class="container">
+  <div id="wrapper">
+  <div class="container" id="content">
     {{{body}}}
   </div>
 
-  <div class="footer">
+  <div class="footer" id="footer">
     <p class="text-center">Codatunes is an open source music creator,
       written by Adam Haag, Stacy Feldstein,
       and Jim Gildersleeve </p>
   </div>
-
+  </div>
 </body>
-
 </html>
