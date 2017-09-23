@@ -17,8 +17,14 @@
           canvas_id: "canvas",
           midi_id: "midi",
           warnings_id: "warnings",
+          midiParams: {
+            generateDownload: true,
+            program: 64,
+          }
         });
+      abc_editor.show_midi = true;
     }
+    
     ABCJS.plugin.start(jQuery);
 
     $("#saveCreation").on("click",
