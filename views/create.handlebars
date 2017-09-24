@@ -1,35 +1,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_editor_midi-min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_plugin-min.js"></script>
-<textarea id="abc"></textarea>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_plugin-min.js"></script>-->
+<textarea id="abc" rows="10" col="20"></textarea>
+<a 
+  href="http://www.lesession.co.uk/abc/abc_notation.htm"
+  target="_blank">
+  A Guide to ABC Notation</a>
 <div id="canvas" style></div>
 <div id="warnings"> </div>
 <div id="notation"></div>
-<div id="midi"></div>
+<div id="midi">
+
+</div>
+  <div id="midi-download"></div>
 <button id="saveCreation">Save</button>
 
 <script>
-  ABCJS.plugin.show_midi = true;
-  ABCJS.plugin.hide_abc = true;
+  //ABCJS.plugin.show_midi = true;
+  //ABCJS.plugin.hide_abc = true;
   $(document).ready(function () {
-    window.onload = function () {
       abc_editor = new ABCJS.Editor(
         "abc", {
-          canvas_id: "canvas",
+          generate_midi: false,
+          paper_id: "canvas",
           midi_id: "midi",
+          midi_download_id: "midi-download", 
           warnings_id: "warnings",
-          midiParams: {
-            generateDownload: true,
-            program: 64,
+          midi_options: {
+            generateDownload: true
           }
+
         });
-      abc_editor.show_midi = true;
-    }
+      //abc_editor.show_midi = true;
     
-    ABCJS.plugin.start(jQuery);
+    
+    //ABCJS.plugin.start(jQuery);
 
     $("#saveCreation").on("click",
       function () {
-        if ($("#warnings").is(":empty") && !$("#abc").is(":empty")) { //only allow user to save if score is error free.
+        if ($("#warnings").is(":empty") 
+        && !$("#abc").is(":empty")) { //only allow user to save if score is error free, and not empty
           $.post(
             "/api/save/creation", {
               title: "test",
@@ -42,10 +51,9 @@
             });
         } else {
           alert(
-            "Please resolve warnings before saving"
+            "Please resolve warnings before saving.  ABC cannot be blank"
           );
         }
-
       });
   })
 </script>
