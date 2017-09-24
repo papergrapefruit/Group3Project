@@ -10,7 +10,8 @@ module.exports = function(app){
     db.Score.create({
       title: req.body.title,
       music: req.body.music,
-      random: req.body.random
+      random: req.body.random,
+      user: req.body.user
     }).then(function(dbPost){
       res.json(dbPost);
     });
