@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Codatunes!</title>
+  <title>CodaTunes!</title>
 
-   <!-- Bootstrap File -->
+  <!-- Bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="./assets/css/style.css" media="all" rel="stylesheet" type="text/css"/>
-   <!-- JQuery -->
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Josefin+Sans|Monoton|Roboto"
+    rel="stylesheet">
+
+  <!-- CSS Files -->
+
+  <link href="./assets/css/style.css" media="all"
+    rel="stylesheet" type="text/css" />
+  <link href="./assets/css/footer.css" media="all"
+    rel="stylesheet" type="text/css" />
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <!-- Google Sign In-->
+  <script src="https://apis.google.com/js/platform.js"
+    async defer></script>
+  <meta name="google-signin-client_id" content="274983882148-a38ar9dbomvebpt5uhnidr1pbe28i1e9.apps.googleusercontent.com">
 </head>
 
 <body>
-  <div class="container">
-    {{{body}}}
-  </div>
+  <div id="wrapper">
+    <div class="container" id="content">
 
-  <div class="footer">
-    <p class="text-center">Codatunes is an open source music creator, written by Adam Haag, Stacy Feldstein, and Jim Gildersleeve </p>
+      <!-- Jumbotron with Title -->
+      <div class="jumbotron">
+
+        <h1 class="text-center"><strong>CodaTunes</strong></h1>
+        <h2 class="text-center">Generate your own randomly selected score or craft your own masterpiece!!</h2>
+        <p class="text-center">Rated M for Music!!</p>
+      </div>
+
+      {{{body}}}
+    </div>
+
+    <div class="footer" id="footer">
+      <p class="text-center">Codatunes is an open source music creator,
+        written by Adam Haag, Stacy Feldstein,
+        and Jim Gildersleeve </p>
+    </div>
   </div>
-    
 </body>
+
 </html>
