@@ -33,7 +33,8 @@ $(document).ready(function () {
           "/api/save/creation", {
             title: "test",
             music: $("#abc").val().trim(),
-            random: false
+            random: false,
+            user: sessionStorage.getItem("user").id
           },
           function (result) {
             console.log(
