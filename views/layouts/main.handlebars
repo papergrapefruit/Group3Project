@@ -6,6 +6,9 @@
 
   <!-- Bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Monoton|Roboto"
+    rel="stylesheet">
   <!-- CSS Files -->
   <link href="./assets/css/style.css" media="all"
     rel="stylesheet" type="text/css" />
@@ -23,9 +26,31 @@
 
 <body>
   <div id="wrapper">
-  <div class="container" id="content">
-    {{{body}}}
-  </div>
+    <div class="container" id="content">
+
+      <!-- Jumbotron with Title -->
+      <div class="jumbotron">
+
+        <h1 class="text-center">CodaTunes</h1>
+        <h3 class="text-center">Rated M for Music</h3>
+      </div>
+      <!-- navbar -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="https://abcjs.net/"
+                target="_blank">About ABC Music Notation</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li id="my-signin2"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-out" onclick="signOut();"></span>Sign out</a></li>
+          </ul>
+        </div>
+      </nav>
+      {{{body}}}
+    </div>
 
   <div class="footer" id="footer">
     <p class="text-center">Codatunes is an open source music creator,
