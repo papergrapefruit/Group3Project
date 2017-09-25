@@ -27,7 +27,6 @@ module.exports = function (app) {
   });
 
   app.get("/random/:id", function(req, res){
-    //db.Score.findAll({})
     res.render("random");
   });
 };
