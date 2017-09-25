@@ -23,7 +23,7 @@ module.exports = function (app) {
   });
 
   app.get("/random", function(req, res){
-
+    console.log(req.body.id);
     res.render("random");
   });
 };

@@ -8,6 +8,7 @@ K: ${key}
 `; 
   this.notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f', 'g', 'a', 'b'];
   this.beats =  (eval(meter)/eval(baseNoteLength));
+  this.keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'Ab', 'Bb', 'C#', 'Cb', 'Db', 'Eb', 'F#', 'Gb'];
   this.random = function(){
     for(var i = 0; i < 20; i++){
       music += this.newBar(4);
@@ -39,5 +40,4 @@ K: ${key}
 var s = new Sheet("treble", "4/4", "A", "1/4");
 var m = s.random();
 console.log(m);
-
 */

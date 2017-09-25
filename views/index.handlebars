@@ -1,3 +1,7 @@
+
+
+<script src="./assets/js/indexScript.js"></script>
+
 <div class="container">
   <div class="row">
     <h2 class="text-center">Hone your skills with randomly generated
@@ -5,46 +9,11 @@
       <br>
       <h2 class="text-center">Or, craft your own masterpiece!</h2>
   </div>
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' +
-        googleUser.getBasicProfile()
-        .getName()
-      );
-      console.log(googleUser.getBasicProfile()
-        .getId());
-    }
 
-    function onFailure(error) {
-      console.log(error);
-    }
-
-    function renderButton() {
-      gapi.signin2.render(
-        'my-signin2', {
-          'scope': 'profile email',
-          'width': 240,
-          'height': 50,
-          'longtitle': true,
-          'theme': 'dark',
-          'onsuccess': onSuccess,
-          'onfailure': onFailure
-        });
-    }
-  </script>
 
   <script src="https://apis.google.com/js/platform.js?onload=renderButton"
     async defer></script>
 
-  <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log(
-          'User signed out.');
-      });
-    }
-  </script>
   <div class="row">
     <div class="col-md-2"></div>
 
