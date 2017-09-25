@@ -1,12 +1,8 @@
-<link rel="stylesheet" type="text/css" href="./assets/css/abcjs-midi.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/abcjs-midi.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_editor_midi-min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_plugin-min.js"></script>-->
+<script src="../assets/js/createScript.js"></script>
 <textarea id="abc" rows="10" col="20"></textarea>
-<a 
-  href="http://www.lesession.co.uk/abc/abc_notation.htm"
-  target="_blank">
-  A Guide to ABC Notation</a>
 <div id="canvas" style></div>
 <div id="warnings"> </div>
 <div id="notation"></div>
@@ -16,58 +12,3 @@
   <div id="midi-download"></div>
 <button id="saveCreation">Save</button>
 <button id="makeMidi">MIDI</button>
-
-<script>
-  //ABCJS.plugin.show_midi = true;
-  //ABCJS.plugin.hide_abc = true;
-
-	function initEditor() {
-		new ABCJS.Editor("abc", { 
-      paper_id: "canvas",
-			generate_midi: false,
-			generate_warnings: true,
-			warnings_id:"warnings"
-		});
-	}
-
-	window.addEventListener("load", initEditor, false);
-  function makeMidi(){
-      abc_editor = new ABCJS.Editor(
-        "abc", {
-          generate_midi: true,
-          paper_id: "canvas",
-          midi_id: "midi",
-          midi_download_id: "midi-download", 
-          generate_warnings: false,
-          midi_options: {
-            generateDownload: true
-          }
-        });
-      abc_editor = null; //after it makes midi, remove the editor.  
-      
-    }
-  $(document).ready(function () {
-    $("#saveCreation").on("click",
-      function () {
-        if ($("#warnings").is(":empty") 
-        && $("#abc").val().trim() !== "") { //only allow user to save if score is error free, and not blank
-          $.post(
-            "/api/save/creation", {
-              title: "test",
-              music: $("#abc").val(),
-              random: false
-            },
-            function (result) {
-              console.log(
-                result);
-            });
-        } else {
-          alert(
-            "Please resolve warnings before saving.  ABC cannot be blank"
-          );
-        }
-      });
-
-    $("#makeMidi").on("click", makeMidi);
-  })
-</script>

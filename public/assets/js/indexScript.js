@@ -2,9 +2,10 @@ function onSuccess(googleUser) {
   console.log('Logged in as: ' +
     googleUser.getBasicProfile().getName()
   );
-  console.log(googleUser.getBasicProfile().getId());
-  var user = {id: parseInt(googleUser.getBasicProfile().getId())}
-  sessionStorage.setItem("user", JSON.stringify(user));
+  
+  var user = googleUser.getBasicProfile().getId();
+  setUserData(user);
+  sessionStorage.setItem("user", JSON.stringify({id:user}));
 }
 
 function onFailure(error) {
@@ -32,12 +33,10 @@ function signOut() {
   });
   
 }
-function getRandomPage(){
-  $.get("/random", {id: JSON.parse(sessionStorage.getItem("user")).id}, function(data){
-    console.log(data);
-  })
+
+function setUserData(user){
+  $("#randomPage").attr("action", "/random/" + user);
+  $("#createPage").attr("action", "/create/" + user);
 }
-$(document).ready(function(){
-  $("#random").on("click", getRandomPage);
-})
+
 

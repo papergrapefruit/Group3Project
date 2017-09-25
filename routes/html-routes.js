@@ -18,12 +18,16 @@ module.exports = function (app) {
     res.render("index");
   });
 
+  app.get("/create/:id", function(req, res){
+    res.render("create");
+  });
+
   app.get("/create", function(req, res){
     res.render("create");
   });
 
-  app.get("/random", function(req, res){
-    console.log(req.body.id);
+  app.get("/random/:id", function(req, res){
+    //db.Score.findAll({})
     res.render("random");
   });
 };
