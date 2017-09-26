@@ -1,9 +1,15 @@
 var db = require("../models");
 
 module.exports = function(app){
-  app.get("api/scores/:userId", function(req, res){
-    var user = req.params.userId;
-    console.log(user);
+  app.put("/api/update/creation", function(req, res){
+    db.Score.update({
+      title: req.body.title,
+      music: req.body.music, 
+    }, {where: 
+      {id: req.body.id}
+    }).then(function(dbPut){
+      res.sendStatus(200);
+    })
   });
 
   app.post("/api/save/random", function(req, res){

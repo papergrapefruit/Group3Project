@@ -28,7 +28,7 @@
   <div class="row" id="body-row">
     <ul>
     {{#each scores}}
-      <li value='{{this.music}}' class="score-item">
+      <li music='{{this.music}}' score-id='{{this.id}}'class="score-item">
         {{this.title}}
       </li>
     {{/each}}

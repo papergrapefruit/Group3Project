@@ -57,19 +57,37 @@ $(document).ready(function () {
       var title = new ABCJS.TuneBook(abc).tunes[0].title;
       if(title === "")
         title = "Untitled";
-      if ($("#warnings").is(":empty") 
-      && abc !== "") { //only allow user to save if score is error free, and not blank
-        $.post(
-          "/api/save/creation", {
-            title: title,
-            music: abc,
-            random: false,
-            user: user,
-          },
-          function (result) {
-            console.log(
-              result);
-          });
+
+      if ($("#warnings").is(":empty") && abc !== "") { //only allow user to save if score is error free, and not blank
+        var id = $(this).attr("score-id");
+        if(id){
+          $.ajax({
+            method: "PUT",
+            url: "/api/update/creation",
+            data: {
+              title: title,
+              music: abc,
+              user: user,
+              id: id,
+            },
+            success: function(data){
+              console.log(data);
+            }
+          })
+
+        } else {
+          $.post(
+            "/api/save/creation", {
+              title: title,
+              music: abc,
+              random: false,
+              user: user,
+            },
+            function (result) {
+              
+              //window.location.href = "/create/" + user;
+            });
+          }
       } else {
         alert(
           "Please resolve warnings before saving.  ABC cannot be blank"
@@ -80,7 +98,9 @@ $(document).ready(function () {
   $("#makeMidi").on("click", makeMidi);
 
   $(".score-item").on("click", function(){
-    $("#abc").val($(this).attr("value"));
+    $("#abc").val($(this).attr("music"));
     $("#abc").focus();
+    $("#saveCreation").attr("score-id", $(this).attr("score-id"));
+
   });
 });
