@@ -29,17 +29,20 @@ module.exports = function (app) {
   app.get("/random/:id", function(req, res){
     db.Score.findAll({
       where: {
-        user: req.params.id
+        user: req.params.id,
+        random: true
       }
     }).then(function(result){
-
       var scores = [];
       result.forEach(function(item){
         scores.push(item.dataValues);
       });
       console.log(scores);
       res.render("random", {scores: scores});
-    })
-    
+    });
   });
+
+  app.get("/random", function(req, res){
+    res.render("random");
+  })
 };

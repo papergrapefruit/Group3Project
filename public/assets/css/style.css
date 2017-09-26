@@ -11,6 +11,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#title-row{
+  background-color: #D381D3;
+  margin-top: 10px;
+
+}
+#body-row {
+  background-color: orange;
+
+}
 
 h2 {
   font-family: 'Libre Baskerville', serif;
@@ -38,7 +47,7 @@ p {
   clear: both;
 }
 
-# canvas {
+#canvas {
 
 }
 
