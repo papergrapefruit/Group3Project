@@ -12,7 +12,7 @@ $(document).ready(function(){
   try{
     user = JSON.parse(sessionStorage.getItem("user")).id;
   }catch(err){
-    console.log("No user logged in.  Saving disabled");
+    console.log("No user logged.  Saving disabled");
     $("#title-row").remove();
     $("#body-row").remove();
     $("#saveRandom").remove();

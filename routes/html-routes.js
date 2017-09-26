@@ -19,7 +19,19 @@ module.exports = function (app) {
   });
 
   app.get("/create/:id", function(req, res){
-    res.render("create");
+    db.Score.findAll({
+      where: {
+        user: req.params.id,
+        random: false
+      }
+    }).then(function(result){
+      var scores = [];
+      result.forEach(function(item){
+        scores.push(item.dataValues);
+      });
+      //console.log(scores);
+      res.render("create", {scores: scores});
+    });
   });
 
   app.get("/create", function(req, res){
