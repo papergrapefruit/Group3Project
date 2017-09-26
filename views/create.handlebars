@@ -3,13 +3,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_editor_midi-min.js"></script>
 <script src="../assets/js/createScript.js"></script>
 
-<textarea id="abc" rows="10" col="20"></textarea>
-<div id="canvas" style></div>
-<div id="warnings"> </div>
-<div id="notation"></div>
-<div id="midi">
-
+<div class="col-md-9">
+  <div class="row">
+    <textarea id="abc" rows="10" cols="20"></textarea>
+    <div id="midi-download"></div>
+    <div id="warnings"> </div>
+    <div id="canvas" style></div>
+    <div id="notation"></div>
+    <div id="midi"></div>
+    
+  </div>
 </div>
-  <div id="midi-download"></div>
-<button id="saveCreation">Save</button>
-<button id="makeMidi">MIDI</button>
+
+<div class="col-md-3">
+  <div class="row">
+    <button id="saveCreation">Save </button>
+    <button id="makeMidi">Download MIDI</button>
+  </div>
+
+  <div class="row" id="title-row">
+    <h3 class="text-center">Saved Random Scores</h3>
+  </div>
+
+  <div class="row" id="body-row">
+    <ul>
+    {{#each scores}}
+      <li value='{{this.music}}' class="score-item">
+        {{this.title}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</div>
