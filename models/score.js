@@ -6,12 +6,12 @@ module.exports = function (sequelize, DataTypes) {
     random: DataTypes.BOOLEAN,
     user: DataTypes.STRING
     
-  }, {
+  /*}, {
       classMethods: {
         associate: function (models) {
           // associations can be defined here
         }
-      }
+      }*/
     });
   return Score;
 };
