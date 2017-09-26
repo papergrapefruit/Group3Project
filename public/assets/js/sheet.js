@@ -5,17 +5,18 @@ function Sheet(clef, meter, key, baseNoteLength) {
               "T: " + time + "\n" + 
               "M: " + meter + "\n" + 
               "L: " + baseNoteLength + "\n" + 
-              "K: " + key + "\n";
+              "K: " + key;
 
   this.notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f', 'g', 'a', 'b'];
   this.beats =  (eval(meter)/eval(baseNoteLength));
   this.keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'Ab', 'Bb', 'C#', 'Cb', 'Db', 'Eb', 'F#', 'Gb'];
   this.random = function(){
-    for(var i = 0; i < 20; i++){
-      music += this.newBar(4);
-      if(i % 4 === 0 && i !== 0){
+    for(var i = 0; i < 28; i++){
+      
+      if(i % 4 === 0){
         music += "\n"; //every 4 bars start a new line
       }
+      music += this.newBar(4);
     }
     return music;
   }

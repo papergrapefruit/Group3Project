@@ -25,6 +25,7 @@ function makeMidi(){
     
   }
 $(document).ready(function () {
+  $("#signOut").empty().html("<a href='/'>Home</a>");
   $("#saveCreation").on("click",
     function () {
       if ($("#warnings").is(":empty") 
