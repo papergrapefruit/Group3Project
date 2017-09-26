@@ -9,8 +9,13 @@
 
   </div>
   <div class="col-md-3">
-    
-
+    <ul>
+    {{#each scores}}
+      <li data={{this.music}}>
+        {{this.title}}
+      </li>
+    {{/each}}
+    </ul>
   </div>
 </div>
 
