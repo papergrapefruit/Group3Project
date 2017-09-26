@@ -1,6 +1,7 @@
 <script src="../assets/js/sheet.js"></script>
 <script src="../assets/js/randomScript.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/3.1.1/abcjs_plugin-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
 <div class="row">
   <div class="col-md-9">
@@ -8,15 +9,23 @@
     <div id="canvas"></div>
 
   </div>
-  <div class="col-md-3">
-    <ul>
-    {{#each scores}}
-      <li data={{this.music}}>
-        {{this.title}}
-      </li>
-    {{/each}}
-    </ul>
+  <div class="col-md-3 ">
+    <div class="row" id="title-row">
+      <h3>Saved Random Scores</h3>
+    </div>
+
+    <div class="row" id="body-row">
+      <ul>
+      {{#each scores}}
+        <li value='{{this.music}}' class="score-item">
+          {{this.title}}
+        </li>
+      {{/each}}
+      </ul>
+    </div>
+
   </div>
+  
 </div>
 
 

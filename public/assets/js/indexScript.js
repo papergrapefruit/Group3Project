@@ -30,6 +30,8 @@ function signOut() {
     console.log(
       'User signed out.');
       sessionStorage.clear();
+      $("#randomPage").attr("action", "/random");
+      $("#createPage").attr("action", "/create");
   });
   
 }

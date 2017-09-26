@@ -1,11 +1,12 @@
 function Sheet(clef, meter, key, baseNoteLength) {
-  var music = 
-`X: 1
-Q: 85
-M: ${meter}
-L: ${baseNoteLength} 
-K: ${key}
-`; 
+  var time = moment().format("ll");
+  //console.log(time);
+  var music = "X: 1\n" + 
+              "T: " + time + "\n" + 
+              "M: " + meter + "\n" + 
+              "L: " + baseNoteLength + "\n" + 
+              "K: " + key + "\n";
+
   this.notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'c', 'd', 'e', 'f', 'g', 'a', 'b'];
   this.beats =  (eval(meter)/eval(baseNoteLength));
   this.keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'Ab', 'Bb', 'C#', 'Cb', 'Db', 'Eb', 'F#', 'Gb'];

@@ -13,7 +13,7 @@ module.exports = function(app){
       random: req.body.random,
       user: req.body.user
     }).then(function(dbPost){
-      res.json(dbPost);
+      res.redirect("/random/" + req.body.user);
     });
   });
 
