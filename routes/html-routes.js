@@ -37,7 +37,7 @@ module.exports = function (app) {
       result.forEach(function(item){
         scores.push(item.dataValues);
       });
-      console.log(scores);
+      //console.log(scores);
       res.render("random", {scores: scores});
     });
   });

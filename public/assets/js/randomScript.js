@@ -1,18 +1,29 @@
 
-$(document).ready(function(){
-  try{
-    var user = JSON.parse(sessionStorage.getItem("user")).id;
-  }catch(err){
-    console.log("No user logged in.  Saving disabled");
-    $("#saveRandom").remove();
-  }
-
+function generateRandomScore(){
   ABCJS.plugin.hide_abc = true;
-  var music = new Sheet("treble", "4/4", "C", "1/4").random();
+  music = new Sheet("treble", "4/4", "C", "1/4").random();
   $("#canvas").html(music);
   ABCJS.plugin.start(jQuery);
+}
+var user;
+var music;
+$(document).ready(function(){
+  $("#signOut").empty().html("<a href='/'>Home</a>");
+  try{
+    user = JSON.parse(sessionStorage.getItem("user")).id;
+  }catch(err){
+    console.log("No user logged in.  Saving disabled");
+    $("#title-row").remove();
+    $("#body-row").remove();
+    $("#saveRandom").remove();
+  }
+  generateRandomScore();
+
 
   $("#saveRandom").on("click", function(){
+    console.log(user);
+    if (user === undefined)
+      return;
     var title = music.split("\n")[1].split(":")[1].trim();
     console.log(title);
     $.post("/api/save/random", {
@@ -25,9 +36,12 @@ $(document).ready(function(){
       });
     });
 
+  $("#newRandom").on("click", function(){
+    generateRandomScore();
+  })
+
   $(".score-item").on("click", function(){
-    var data = $(this).attr("value");
-    music = data;
+    music = $(this).attr("value");
     $("#canvas").html(music);
     ABCJS.plugin.start(jQuery);
   });

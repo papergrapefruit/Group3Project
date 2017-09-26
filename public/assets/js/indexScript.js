@@ -41,8 +41,5 @@ function setUserData(user){
   $("#createPage").attr("action", "/create/" + user);
 }
 
-$(document).ready(function(){
-  $("#signOut").on("click", signOut);
-})
 
 
