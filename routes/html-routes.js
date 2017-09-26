@@ -27,6 +27,19 @@ module.exports = function (app) {
   });
 
   app.get("/random/:id", function(req, res){
-    res.render("random");
+    db.Score.findAll({
+      where: {
+        user: req.params.id
+      }
+    }).then(function(result){
+
+      var scores = [];
+      result.forEach(function(item){
+        scores.push(item.dataValues);
+      });
+      //console.log(scores);
+      res.render("random", scores);
+    })
+    
   });
 };
