@@ -16,7 +16,7 @@ function makeMidi(){
           generate_midi: true,
           paper_id: "canvas",
           midi_id: "midi",
-          midi_download_id: "midi-download", 
+          midi_download_id: "message", 
           generate_warnings: false,
           midi_options: {
             generateDownload: true
@@ -101,6 +101,20 @@ $(document).ready(function () {
     $("#abc").val($(this).attr("music"));
     $("#abc").focus();
     $("#saveCreation").attr("score-id", $(this).attr("score-id"));
+  });
 
+  $(".delete").on("click", function(){
+    var package = {
+      id: $(this).attr("score-id")
+    } 
+
+    $.ajax({
+      url: "/api/delete/score",
+      method: "DELETE",
+      data: package,
+      success: function(){
+        $("#score" + package.id).remove();
+      }
+    });
   });
 });
