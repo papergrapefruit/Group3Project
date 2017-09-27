@@ -19,7 +19,7 @@ module.exports = function(app){
       random: req.body.random,
       user: req.body.user
     }).then(function(dbPost){
-      res.redirect("/random/" + req.body.user);
+      res.json({score: dbPost});
     });
   });
 
@@ -30,7 +30,7 @@ module.exports = function(app){
       random: req.body.random,
       user: req.body.user
     }).then(function(dbPost){
-      res.json(dbPost);
+      res.json({score: dbPost});
     });
   });
 

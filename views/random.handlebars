@@ -20,9 +20,9 @@
     </div>
 
     <div class="row" id="body-row">
-      <ul>
+      <ul id="score-list">
     {{#each scores}}
-      <div class="row score-list-item" id="score{{this.id}}">
+      <li class="row score-list-item" id="score{{this.id}}">
         <div class="col-xs-10">
           <div music='{{this.music}}' score-id='{{this.id}}'class="score-item text-center">
           <strong>{{this.title}}</strong></div>
@@ -30,7 +30,7 @@
         <div class="col-xs-2">
           <span class="delete glyphicon glyphicon-remove" title="Delete" score-id='{{this.id}}'></span>
         </div>
-      </div>
+      </li>
     {{/each}}
       </ul>
     </div>

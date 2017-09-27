@@ -21,6 +21,10 @@
   font-weight: bolder;
 
 }
+
+ul {
+  list-style-type: none;
+}
 #title-row{
   color: white;
   background-color: #222;

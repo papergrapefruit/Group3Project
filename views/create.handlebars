@@ -18,7 +18,8 @@
 <div class="col-md-3">
   <div class="row">
     <button id="saveCreation" class='btn'>Save </button>
-    <button id="makeMidi" class='btn'>Download MIDI</button>
+    <button id="makeMidi" class='btn'>MIDI</button>
+    <button id="newScore" class='btn'>New</button>
   </div>
 
   <div class="row" id="title-row">
@@ -26,9 +27,9 @@
   </div>
 
   <div class="row" id="body-row">
-    
+    <ul id="score-list">
     {{#each scores}}
-      <div class="row score-list-item" id="score{{this.id}}">
+      <li class="row score-list-item" id="score{{this.id}}">
         <div class="col-xs-10">
           <div music='{{this.music}}' score-id='{{this.id}}'class="score-item text-center">
           <strong>{{this.title}}</strong></div>
@@ -36,8 +37,8 @@
         <div class="col-xs-2">
           <span class="delete glyphicon glyphicon-remove" title="Delete" score-id='{{this.id}}'></span>
         </div>
-      </div>
+      </li>
     {{/each}}
-    
+    </ul>
   </div>
 </div>
