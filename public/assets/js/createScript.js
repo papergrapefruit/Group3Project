@@ -7,6 +7,21 @@ function initEditor() {
   });
 }
 
+function addToSavedList(music, title, id){
+  var html = 
+`<li class="row score-list-item" id="score${id}">
+  <div class="col-xs-10">
+    <div music='${music}' score-id='${id}'class="score-item text-center">
+    <strong>${title}</strong></div>
+  </div>
+  <div class="col-xs-2">
+    <span class="delete glyphicon glyphicon-remove" title="Delete" score-id='${id}'></span>
+  </div>
+</li>`;
+  $("#score-list").append(html);
+  $("#saveCreation").attr("score-id", id);
+}
+
 window.addEventListener("load", initEditor, false);
 function makeMidi(){
     $("#midi").hide();
@@ -29,7 +44,8 @@ function makeMidi(){
       //console.log(abc_editor);
     abc_editor = null; //after it makes the midi, nullify the editor
                        //or user will get errors the first change they make
-    $("#warnings").empty();
+    $("#warnings").empty();//abc_editor leaves a blanks space after creating the midi, which
+                           //interupts the ability to save afterwards
     modalAlert();
   }
 var user;
@@ -86,6 +102,7 @@ $(document).ready(function () {
               user: user,
             },
             function (result) {
+              addToSavedList(abc, title, result.score.id);
               modalAlert("Success!");
               //window.location.href = "/create/" + user;
             });
@@ -99,13 +116,18 @@ $(document).ready(function () {
 
   $("#makeMidi").on("click", makeMidi);
 
-  $(".score-item").on("click", function(){
+  $("#newScore").on("click", function(){
+    $("#saveCreation").removeAttr("score-id");
+    $("#abc").val("");
+  })
+
+  $(document).on("click", ".score-item", function(){
     $("#abc").val($(this).attr("music"));
     $("#abc").focus();
     $("#saveCreation").attr("score-id", $(this).attr("score-id"));
   });
 
-  $(".delete").on("click", function(){
+  $(document).on("click", ".delete", function(){
     var package = {
       id: $(this).attr("score-id")
     } 
