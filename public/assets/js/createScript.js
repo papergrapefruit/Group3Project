@@ -24,6 +24,9 @@ function addToSavedList(music, title, id){
 
 window.addEventListener("load", initEditor, false);
 function makeMidi(){
+    if($("#abc").val().trim() === ""){
+      return;
+    }
     $("#midi").hide();
     $("#message").empty();
     try{
