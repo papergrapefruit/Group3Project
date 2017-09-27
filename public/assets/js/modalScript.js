@@ -3,14 +3,16 @@ function modalAlert(message){
         $("#message").html(message);
     modal.style.display = "block";
 }
+var modal;
+var span;
 $(document).ready(function(){
 
 
-var modal = document.getElementById('myModal');
+modal = document.getElementById('myModal');
 
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+ span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal 
 
