@@ -10,6 +10,7 @@ function initEditor() {
 window.addEventListener("load", initEditor, false);
 function makeMidi(){
     $("#midi").hide();
+    $("#message").empty();
     try{
       abc_editor = new ABCJS.Editor(
         "abc", {
@@ -23,12 +24,13 @@ function makeMidi(){
           }
         });
     }catch(err){
-      alert("Resolve errors in abc text");
+      modalAlert("Resolve errors in abc text");
     }
       //console.log(abc_editor);
     abc_editor = null; //after it makes the midi, nullify the editor
                        //or user will get errors the first change they make
-    
+    $("#warnings").empty();
+    modalAlert();
   }
 var user;
 $(document).ready(function () {
@@ -71,7 +73,7 @@ $(document).ready(function () {
               id: id,
             },
             success: function(data){
-              console.log(data);
+              modalAlert("Success!");
             }
           })
 
@@ -84,12 +86,12 @@ $(document).ready(function () {
               user: user,
             },
             function (result) {
-              
+              modalAlert("Success!");
               //window.location.href = "/create/" + user;
             });
           }
       } else {
-        alert(
+        modalAlert(
           "Please resolve warnings before saving.  ABC cannot be blank"
         );
       }

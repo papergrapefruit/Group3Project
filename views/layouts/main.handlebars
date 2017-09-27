@@ -14,6 +14,8 @@
     rel="stylesheet" type="text/css" />
   <link href="../assets/css/footer.css" media="all"
     rel="stylesheet" type="text/css" />
+  <link href="../assets/css/modal.css" media="all"
+  rel="stylesheet" type="text/css" />
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -21,6 +23,7 @@
   <!-- Google Sign In-->
   <script src="https://apis.google.com/js/platform.js"
     async defer></script>
+  <script src="../assets/js/modalScript.js"></script>
   <meta name="google-signin-client_id" content="274983882148-a38ar9dbomvebpt5uhnidr1pbe28i1e9.apps.googleusercontent.com">
 </head>
 
@@ -31,7 +34,7 @@
       <!-- Jumbotron with Title -->
       <div class="jumbotron">
 
-        <h1 class="text-center"><a href="/">CodaTunes</a></h1>
+        <h1 class="text-center">CodaTunes</h1>
         <h3 class="text-center">Rated M for Music</h3>
       </div>
       <!-- navbar -->
@@ -52,6 +55,18 @@
           </ul>
         </div>
       </nav>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4 id="message" class="text-center"></h4>
+  </div>
+
+</div>
+
+
       {{{body}}}
     </div>
 
