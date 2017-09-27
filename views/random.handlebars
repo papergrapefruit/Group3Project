@@ -11,8 +11,8 @@
   </div>
   <div class="col-md-3 ">
     <div class="row">
-      <button id="saveRandom">Save</button>
-      <button id="newRandom">New Random Score</button>
+      <button id="saveRandom" class='btn'>Save</button>
+      <button id="newRandom" class='btn'>New Random Score</button>
     </div>
 
     <div class="row" id="title-row">
@@ -21,11 +21,17 @@
 
     <div class="row" id="body-row">
       <ul>
-      {{#each scores}}
-        <li value='{{this.music}}' class="score-item">
-          {{this.title}}
-        </li>
-      {{/each}}
+    {{#each scores}}
+      <div class="row score-list-item" id="score{{this.id}}">
+        <div class="col-xs-10">
+          <div music='{{this.music}}' score-id='{{this.id}}'class="score-item text-center">
+          <strong>{{this.title}}</strong></div>
+        </div>
+        <div class="col-xs-2">
+          <span class="delete glyphicon glyphicon-remove" title="Delete" score-id='{{this.id}}'></span>
+        </div>
+      </div>
+    {{/each}}
       </ul>
     </div>
 

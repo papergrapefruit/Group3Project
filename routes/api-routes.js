@@ -33,4 +33,14 @@ module.exports = function(app){
       res.json(dbPost);
     });
   });
+
+  app.delete("/api/delete/score", function(req, res){
+    db.Score.destroy({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(){
+      res.sendStatus(200);
+    })
+  })
 }

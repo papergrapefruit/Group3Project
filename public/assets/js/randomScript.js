@@ -32,7 +32,7 @@ $(document).ready(function(){
       random: true,
       user: user }, 
       function(result){
-        window.location.href = "/random/" + user;
+        modalAlert("Success!");
       });
     });
 
@@ -41,8 +41,22 @@ $(document).ready(function(){
   })
 
   $(".score-item").on("click", function(){
-    music = $(this).attr("value");
+    music = $(this).attr("music");
     $("#canvas").html(music);
     ABCJS.plugin.start(jQuery);
+  });
+
+  $(".delete").on("click", function(){
+    var package = {
+      id: $(this).attr("score-id")
+    }   
+    $.ajax({
+      url: "/api/delete/score",
+      method: "DELETE",
+      data: package,
+      success: function(){
+        $("#score" + package.id).remove();
+      }
+    });
   });
 });

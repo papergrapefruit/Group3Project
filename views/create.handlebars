@@ -17,21 +17,27 @@
 
 <div class="col-md-3">
   <div class="row">
-    <button id="saveCreation">Save </button>
-    <button id="makeMidi">Download MIDI</button>
+    <button id="saveCreation" class='btn'>Save </button>
+    <button id="makeMidi" class='btn'>Download MIDI</button>
   </div>
 
   <div class="row" id="title-row">
-    <h3 class="text-center">Saved Random Scores</h3>
+    <h4 class="text-center">Saved Scores</h4>
   </div>
 
   <div class="row" id="body-row">
-    <ul>
+    
     {{#each scores}}
-      <li music='{{this.music}}' score-id='{{this.id}}'class="score-item">
-        {{this.title}}
-      </li>
+      <div class="row score-list-item" id="score{{this.id}}">
+        <div class="col-xs-10">
+          <div music='{{this.music}}' score-id='{{this.id}}'class="score-item text-center">
+          <strong>{{this.title}}</strong></div>
+        </div>
+        <div class="col-xs-2">
+          <span class="delete glyphicon glyphicon-remove" title="Delete" score-id='{{this.id}}'></span>
+        </div>
+      </div>
     {{/each}}
-    </ul>
+    
   </div>
 </div>

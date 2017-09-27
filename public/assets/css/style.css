@@ -11,14 +11,30 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.score-list-item{
+  margin-top: 5px;
+  
+}
+.score-item {
+  cursor: pointer;
+  font-family: 'Roboto', cursive;
+  font-weight: bolder;
+
+}
 #title-row{
-  background-color: #D381D3;
+  color: white;
+  background-color: #222;
   margin-top: 10px;
+  border: 1px solid black;
 
 }
 #body-row {
-  background-color: orange;
+  margin-top: 2px;
 
+}
+
+.glyphicon-remove {
+  cursor: pointer;
 }
 
 h2 {
@@ -259,9 +275,6 @@ em {
   .aside {
     position: absolute;
     bottom: 0;
-  }
-  .offset {
-    margin-top: -370px;
   }
   .arrow {
     margin-top: 9px;
