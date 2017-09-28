@@ -52,6 +52,7 @@ $(document).ready(function(){
       user: user }, 
       function(result){
         //console.log(result.score.id);
+        $("#saveRandom").attr("score-id", result.score.id);
         addToSavedList(music, title, result.score.id);
         modalAlert("Success!");
       });
