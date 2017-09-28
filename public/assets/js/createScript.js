@@ -69,6 +69,7 @@ $(document).ready(function () {
     $("#title-row").remove();
     $("#body-row").remove();
     $("#saveCreation").remove();
+    $("#newScore").remove();
   }
 
   
